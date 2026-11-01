@@ -1,0 +1,51 @@
+plans = [
+    ("Basic", 199, 2, 1, 28),
+    ("Smart", 299, 3, 2, 56),
+    ("Premium", 399, 5, 3, 84),
+    ("Unlimited", 599, 10, 5, 90)
+]
+
+data_usage = float(input("Enter monthly data usage (GB): "))
+call_usage = float(input("Enter call usage (hours): "))
+validity_needed = int(input("Enter required validity (days): "))
+budget = float(input("Enter your budget: "))
+
+eligible_plans = []
+
+print("\n====== TELECOM PLAN ANALYSIS ======")
+
+for name, price, data, calls, validity in plans:
+
+    excess_data = max(0, data_usage - data)
+    excess_calls = max(0, call_usage - calls)
+
+    data_charge = excess_data * 20
+    call_charge = excess_calls * 10
+
+    total_cost = price + data_charge + call_charge
+
+    print("\nPlan:", name)
+    print("Base Price: Rs.", price)
+    print("Excess Data Charge: Rs.", data_charge)
+    print("Excess Call Charge: Rs.", call_charge)
+    print("Total Cost: Rs.", total_cost)
+
+    if (data >= data_usage and
+        calls >= call_usage and
+        validity >= validity_needed and
+        total_cost <= budget):
+
+        eligible_plans.append((name, total_cost))
+
+if len(eligible_plans) > 0:
+
+    eligible_plans.sort(key=lambda x: x[1])
+
+    print("\n====== BEST PLAN ======")
+    print("Most Economical Plan:", eligible_plans[0][0])
+    print("Total Cost: Rs.", eligible_plans[0][1])
+
+else:
+    print("\nNo eligible plan found within your budget.")
+
+print("\nPlan Analysis Completed!")
