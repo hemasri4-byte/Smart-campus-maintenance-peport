@@ -1,0 +1,75 @@
+# Student Timetable Conflict Detection
+
+# Course timetable (Course, Day, Start, End, Room)
+courses = [
+    ("Python", "Monday", 9, 11, "R101"),
+    ("Java", "Monday", 10, 12, "R102"),
+    ("Maths", "Tuesday", 9, 10, "R103"),
+    ("English", "Tuesday", 11, 12, "R101")
+]
+
+# Unavailable rooms
+unavailable_rooms = ["R102", "R105"]
+
+print("===== STUDENT TIMETABLE =====")
+
+for course in courses:
+    print(course)
+
+print("\n===== CONFLICT DETECTION =====")
+
+conflict_found = False
+
+# Check overlapping course periods
+for i in range(len(courses)):
+    for j in range(i + 1, len(courses)):
+
+        c1 = courses[i]
+        c2 = courses[j]
+
+        if c1[1] == c2[1]:
+            if c1[2] < c2[3] and c2[2] < c1[3]:
+                print("Time Conflict:")
+                print(c1[0], "and", c2[0], "overlap on", c1[1])
+                conflict_found = True
+
+if not conflict_found:
+    print("No time conflicts found.")
+
+print("\n===== ROOM AVAILABILITY =====")
+
+room_conflict = False
+
+for course in courses:
+    if course[4] in unavailable_rooms:
+        print("Room Unavailable:", course[4],
+              "for", course[0])
+        room_conflict = True
+
+if not room_conflict:
+    print("All rooms are available.")
+
+# Validate timetable
+print("\n===== TIMETABLE VALIDATION =====")
+
+if not conflict_found and not room_conflict:
+    print("Timetable is VALID.")
+else:
+    print("Timetable is INVALID.")
+    print("Please modify the timetable.")
+
+# Proposed timetable
+print("\n===== PROPOSED TIMETABLE =====")
+
+proposed = (
+    "Science", "Wednesday", 9, 11, "R104"
+)
+
+print("New Course:", proposed)
+
+if proposed[4] in unavailable_rooms:
+    print("Proposed timetable rejected: Room unavailable.")
+
+else:
+    print("Proposed course room is available.")
+    print("Proposed course can be added.")
