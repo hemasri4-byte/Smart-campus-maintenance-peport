@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i, j, temp;
+    int units[50], id[50];
+    float bill[50], recorded[50];
+    float fixed = 50, rebate, amount;
+    
+    printf("Enter number of apartments: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        printf("\nEnter apartment ID: ");
+        scanf("%d", &id[i]);
+
+        printf("Enter units consumed: ");
+        scanf("%d", &units[i]);
+
+        printf("Enter recorded bill: ");
+        scanf("%f", &recorded[i]);
+
+        // Progressive tariff calculation
+        if(units[i] <= 100)
+            amount = units[i] * 2;
+        else if(units[i] <= 200)
+            amount = 100 * 2 +
+                     (units[i] - 100) * 3;
+        else
+            amount = 100 * 2 + 100 * 3 +
+                     (units[i] - 200) * 5;
+
+        amount = amount + fixed;
+
+        // 5% rebate for consumption below 100 units
+        if(units[i] < 100)
+            rebate = amount * 0.05;
+        else
+            rebate = 0;
+
+        bill[i] = amount - rebate;
+    }
+
+    printf("\n--- APARTMENT BILL DETAILS ---\n");
+
+    for(i = 0; i < n; i++)
+    {
+        printf("\nApartment ID: %d", id[i]);
+        printf("\nUnits Consumed: %d", units[i]);
+        printf("\nElectricity Bill: Rs. %.2f", bill[i]);
+
+        if(bill[i] != recorded[i])
+            printf("\nDiscrepancy: YES");
+        else
+            printf("\nDiscrepancy: NO");
+
+        printf("\n");
+    }
+
+    // Ranking apartments by consumption
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = i + 1; j < n; j++)
+        {
+            if(units[i] < units[j])
+            {
+                temp = units[i];
+                units[i] = units[j];
+                units[j] = temp;
+
+                temp = id[i];
+                id[i] = id[j];
+                id[j] = temp;
+            }
+        }
+    }
+
+    printf("\n--- CONSUMPTION RANKING ---\n");
+
+    for(i = 0; i < n; i++)
+    {
+        printf("Rank %d: Apartment %d - %d units\n",
+               i + 1, id[i], units[i]);
+    }
+
+    return 0;
+}
