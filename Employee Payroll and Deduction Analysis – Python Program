@@ -1,0 +1,46 @@
+employees = []
+
+n = int(input("Enter number of employees: "))
+
+for i in range(n):
+    print("\nEnter Employee Details")
+
+    name = input("Employee Name: ")
+    basic = float(input("Basic Pay: "))
+    allowance = float(input("Allowances: "))
+    overtime = float(input("Overtime Amount: "))
+    incentive = float(input("Incentives: "))
+
+    gross = basic + allowance + overtime + incentive
+
+    # Progressive deductions
+    if gross <= 20000:
+        deduction = gross * 0.05
+    elif gross <= 40000:
+        deduction = 20000 * 0.05 + (gross - 20000) * 0.10
+    else:
+        deduction = (20000 * 0.05 +
+                     20000 * 0.10 +
+                     (gross - 40000) * 0.15)
+
+    net_salary = gross - deduction
+
+    employees.append(
+        (name, basic, allowance, overtime,
+         incentive, gross, deduction, net_salary)
+    )
+
+print("\n========== SALARY STATEMENT ==========")
+
+for emp in employees:
+    print("\nEmployee Name:", emp[0])
+    print("Basic Pay: Rs.", emp[1])
+    print("Allowances: Rs.", emp[2])
+    print("Overtime: Rs.", emp[3])
+    print("Incentives: Rs.", emp[4])
+    print("--------------------------------------")
+    print("Gross Salary: Rs.", emp[5])
+    print("Total Deduction: Rs.", round(emp[6], 2))
+    print("Net Salary: Rs.", round(emp[7], 2))
+
+print("\nPayroll Processing Completed!")
