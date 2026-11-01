@@ -1,0 +1,181 @@
+# Comprehensive Smart Campus Management System
+
+students = []
+attendance = []
+marks = []
+events = []
+resources = []
+
+while True:
+    print("\n===== SMART CAMPUS MANAGEMENT =====")
+    print("1. Add Student Records")
+    print("2. View Student Records")
+    print("3. Record Attendance")
+    print("4. Enter Student Marks")
+    print("5. Event Registration")
+    print("6. Resource Allocation")
+    print("7. Generate Summary Report")
+    print("8. Exit")
+
+    choice = input("Enter your choice: ")
+
+    # 1. Add Student Records
+    if choice == "1":
+        sid = input("Enter Student ID: ")
+        name = input("Enter Student Name: ")
+        course = input("Enter Course: ")
+
+        student = (sid, name, course)
+        students.append(student)
+
+        print("Student record added successfully!")
+
+    # 2. View Student Records
+    elif choice == "2":
+        if len(students) == 0:
+            print("No student records found.")
+        else:
+            print("\n--- Student Records ---")
+            for sid, name, course in students:
+                print("ID:", sid, "Name:", name,
+                      "Course:", course)
+
+    # 3. Record Attendance
+    elif choice == "3":
+        sid = input("Enter Student ID: ")
+
+        found = False
+        for student in students:
+            if student[0] == sid:
+                found = True
+                break
+
+        if found:
+            present = int(input("Enter classes attended: "))
+            total = int(input("Enter total classes: "))
+
+            if total > 0 and 0 <= present <= total:
+                percentage = (present / total) * 100
+                attendance.append([sid, present,
+                                   total, percentage])
+                print("Attendance recorded:", percentage, "%")
+            else:
+                print("Invalid attendance details.")
+        else:
+            print("Student not found.")
+
+    # 4. Enter Student Marks
+    elif choice == "4":
+        sid = input("Enter Student ID: ")
+
+        found = False
+        for student in students:
+            if student[0] == sid:
+                found = True
+                break
+
+        if found:
+            m1 = float(input("Enter Subject 1 marks: "))
+            m2 = float(input("Enter Subject 2 marks: "))
+            m3 = float(input("Enter Subject 3 marks: "))
+
+            if all(0 <= m <= 100 for m in [m1, m2, m3]):
+                total = m1 + m2 + m3
+                average = total / 3
+
+                marks.append([sid, [m1, m2, m3],
+                              total, average])
+
+                if average >= 75:
+                    grade = "A"
+                elif average >= 60:
+                    grade = "B"
+                elif average >= 40:
+                    grade = "C"
+                else:
+                    grade = "Fail"
+
+                print("Total:", total)
+                print("Average:", average)
+                print("Grade:", grade)
+            else:
+                print("Marks must be between 0 and 100.")
+        else:
+            print("Student not found.")
+
+    # 5. Event Registration
+    elif choice == "5":
+        sid = input("Enter Student ID: ")
+        event_name = input("Enter Event Name: ")
+
+        found = False
+        for student in students:
+            if student[0] == sid:
+                found = True
+                break
+
+        if found:
+            registration = (sid, event_name)
+            events.append(registration)
+            print("Event registration successful!")
+        else:
+            print("Student not found.")
+
+    # 6. Resource Allocation
+    elif choice == "6":
+        sid = input("Enter Student ID: ")
+        resource = input("Enter Resource Name: ")
+        quantity = int(input("Enter Quantity: "))
+
+        found = False
+        for student in students:
+            if student[0] == sid:
+                found = True
+                break
+
+        if found and quantity > 0:
+            resources.append([sid, resource, quantity])
+            print("Resource allocated successfully!")
+        elif not found:
+            print("Student not found.")
+        else:
+            print("Invalid quantity.")
+
+    # 7. Generate Summary Report
+    elif choice == "7":
+        print("\n===== CAMPUS SUMMARY REPORT =====")
+
+        print("Total Students:", len(students))
+        print("Attendance Records:", len(attendance))
+        print("Marks Records:", len(marks))
+        print("Event Registrations:", len(events))
+        print("Resource Allocations:", len(resources))
+
+        print("\n--- Student Performance ---")
+        for record in marks:
+            sid, subject_marks, total, average = record
+            print("Student ID:", sid)
+            print("Subject Marks:", subject_marks)
+            print("Total:", total)
+            print("Average:", round(average, 2))
+
+        print("\n--- Attendance Report ---")
+        for sid, present, total, percentage in attendance:
+            print("Student:", sid,
+                  "Attendance:", round(percentage, 2), "%")
+
+        print("\n--- Event Registrations ---")
+        for sid, event_name in events:
+            print(sid, "registered for", event_name)
+
+        print("\n--- Resource Allocation ---")
+        for sid, resource, quantity in resources:
+            print(sid, resource, quantity)
+
+    # 8. Exit
+    elif choice == "8":
+        print("Thank you for using Smart Campus Management!")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
