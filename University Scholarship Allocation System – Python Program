@@ -1,0 +1,79 @@
+# University Scholarship Allocation System
+
+students = []
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    print("\nEnter details of Student", i + 1)
+
+    name = input("Enter student name: ")
+    roll = input("Enter roll number: ")
+
+    marks = []
+    for j in range(3):
+        m = float(input("Enter subject " + str(j + 1) + " marks: "))
+        marks.append(m)
+
+    attendance = float(input("Enter attendance percentage: "))
+    income = float(input("Enter family annual income: "))
+
+    aggregate = sum(marks) / len(marks)
+
+    # Eligibility conditions
+    if (aggregate >= 75 and min(marks) >= 60
+            and attendance >= 75 and income <= 300000):
+
+        status = "Eligible"
+    else:
+        status = "Not Eligible"
+
+    students.append([
+        name, roll, aggregate, attendance,
+        income, status
+    ])
+
+# Separate eligible students
+eligible = []
+
+for s in students:
+    if s[5] == "Eligible":
+        eligible.append(s)
+
+# Ranking:
+# 1. Higher aggregate marks
+# 2. Higher attendance
+# 3. Lower family income
+
+eligible.sort(key=lambda x: (-x[2], -x[3], x[4]))
+
+# Display results
+print("\n========== SCHOLARSHIP RESULTS ==========")
+
+for s in students:
+    print("\nName:", s[0])
+    print("Roll Number:", s[1])
+    print("Aggregate Marks:", round(s[2], 2))
+    print("Attendance:", s[3], "%")
+    print("Family Income:", s[4])
+    print("Status:", s[5])
+
+print("\n========== ELIGIBLE STUDENTS RANKING ==========")
+
+if len(eligible) == 0:
+    print("No eligible students found.")
+else:
+    rank = 1
+
+    for s in eligible:
+        print("Rank:", rank)
+        print("Name:", s[0])
+        print("Roll Number:", s[1])
+        print("Aggregate:", round(s[2], 2))
+        print("Attendance:", s[3], "%")
+        print("-------------------------")
+        rank += 1
+
+print("\nTotal Applicants:", n)
+print("Eligible Students:", len(eligible))
+print("Not Eligible Students:", n - len(eligible))
