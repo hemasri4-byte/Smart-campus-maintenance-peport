@@ -86,3 +86,40 @@ int main()
 
     return 0;
 }
+out put
+Enter number of apartments: 3
+
+Enter apartment ID: 101
+Enter units consumed: 80
+Enter recorded bill: 202.00
+
+Enter apartment ID: 102
+Enter units consumed: 150
+Enter recorded bill: 500.00
+
+Enter apartment ID: 103
+Enter units consumed: 250
+Enter recorded bill: 1000.00
+
+--- APARTMENT BILL DETAILS ---
+
+Apartment ID: 101
+Units Consumed: 80
+Electricity Bill: Rs. 202.00
+Discrepancy: NO
+
+Apartment ID: 102
+Units Consumed: 150
+Electricity Bill: Rs. 400.00
+Discrepancy: YES
+
+Apartment ID: 103
+Units Consumed: 250
+Electricity Bill: Rs. 850.00
+Discrepancy: YES
+
+
+--- CONSUMPTION RANKING ---
+Rank 1: Apartment 103 - 250 units
+Rank 2: Apartment 102 - 150 units
+Rank 3: Apartment 101 - 80 units
