@@ -49,3 +49,35 @@ else:
     print("\nNo eligible plan found within your budget.")
 
 print("\nPlan Analysis Completed!")
+out put
+====== TELECOM PLAN ANALYSIS ======
+
+Plan: Basic
+Base Price: Rs. 199
+Excess Data Charge: Rs. 0.0
+Excess Call Charge: Rs. 0.0
+Total Cost: Rs. 199.0
+
+Plan: Smart
+Base Price: Rs. 299
+Excess Data Charge: Rs. 0.0
+Excess Call Charge: Rs. 0.0
+Total Cost: Rs. 299.0
+
+Plan: Premium
+Base Price: Rs. 399
+Excess Data Charge: Rs. 0.0
+Excess Call Charge: Rs. 0.0
+Total Cost: Rs. 399.0
+
+Plan: Unlimited
+Base Price: Rs. 599
+Excess Data Charge: Rs. 0.0
+Excess Call Charge: Rs. 0.0
+Total Cost: Rs. 599.0
+
+====== BEST PLAN ======
+Most Economical Plan: Basic
+Total Cost: Rs. 199.0
+
+Plan Analysis Completed!
