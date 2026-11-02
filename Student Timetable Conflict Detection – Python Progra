@@ -73,3 +73,25 @@ if proposed[4] in unavailable_rooms:
 else:
     print("Proposed course room is available.")
     print("Proposed course can be added.")
+out put
+===== STUDENT TIMETABLE =====
+('Python', 'Monday', 9, 11, 'R101')
+('Java', 'Monday', 10, 12, 'R102')
+('Maths', 'Tuesday', 9, 10, 'R103')
+('English', 'Tuesday', 11, 12, 'R101')
+
+===== CONFLICT DETECTION =====
+Time Conflict:
+Python and Java overlap on Monday
+
+===== ROOM AVAILABILITY =====
+Room Unavailable: R102 for Java
+
+===== TIMETABLE VALIDATION =====
+Timetable is INVALID.
+Please modify the timetable.
+
+===== PROPOSED TIMETABLE =====
+New Course: ('Science', 'Wednesday', 9, 11, 'R104')
+Proposed course room is available.
+Proposed course can be added.
