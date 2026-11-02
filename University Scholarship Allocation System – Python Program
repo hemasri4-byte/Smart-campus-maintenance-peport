@@ -77,3 +77,45 @@ else:
 print("\nTotal Applicants:", n)
 print("Eligible Students:", len(eligible))
 print("Not Eligible Students:", n - len(eligible))
+out put
+========== SCHOLARSHIP RESULTS ==========
+
+Name: Rahul
+Roll Number: 101
+Aggregate Marks: 85.0
+Attendance: 90.0 %
+Family Income: 250000.0
+Status: Eligible
+
+Name: Priya
+Roll Number: 102
+Aggregate Marks: 80.0
+Attendance: 85.0 %
+Family Income: 200000.0
+Status: Eligible
+
+Name: Arjun
+Roll Number: 103
+Aggregate Marks: 68.33
+Attendance: 80.0 %
+Family Income: 150000.0
+Status: Not Eligible
+
+========== ELIGIBLE STUDENTS RANKING ==========
+
+Rank: 1
+Name: Rahul
+Roll Number: 101
+Aggregate: 85.0
+Attendance: 90.0 %
+-------------------------
+Rank: 2
+Name: Priya
+Roll Number: 102
+Aggregate: 80.0
+Attendance: 85.0 %
+-------------------------
+
+Total Applicants: 3
+Eligible Students: 2
+Not Eligible Students: 1
