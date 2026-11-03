@@ -41,3 +41,46 @@ Severity: 2
 Frequency: 2
 Priority Score: 33
 Priority Level: LOW
+out put
+SMART CAMPUS MAINTENANCE REPORT
+--------------------------------
+
+Rank: 1
+Incident: Electrical Short Circuit
+Location: Classroom
+Severity: 5
+Frequency: 4
+Priority Score: 73
+Priority Level: HIGH
+
+Rank: 2
+Incident: Water Leakage
+Location: Hostel
+Severity: 3
+Frequency: 5
+Priority Score: 57
+Priority Level: MEDIUM
+
+Rank: 3
+Incident: Damaged Laboratory Equipment
+Location: Laboratory
+Severity: 4
+Frequency: 3
+Priority Score: 58
+Priority Level: MEDIUM
+
+Rank: 4
+Incident: Broken Road Light
+Location: Campus Road
+Severity: 3
+Frequency: 4
+Priority Score: 52
+Priority Level: MEDIUM
+
+Rank: 5
+Incident: Broken Classroom Fan
+Location: Classroom
+Severity: 2
+Frequency: 2
+Priority Score: 33
+Priority Level: LOW
