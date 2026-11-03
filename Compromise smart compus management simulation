@@ -179,3 +179,93 @@ while True:
 
     else:
         print("Invalid choice! Please try again.")
+out put
+===== SMART CAMPUS MANAGEMENT =====
+1. Add Student Records
+2. View Student Records
+3. Record Attendance
+4. Enter Student Marks
+5. Event Registration
+6. Resource Allocation
+7. Generate Summary Report
+8. Exit
+
+Enter your choice: 1
+Enter Student ID: 101
+Enter Student Name: Ravi
+Enter Course: BCA
+Student record added successfully!
+
+===== SMART CAMPUS MANAGEMENT =====
+1. Add Student Records
+2. View Student Records
+3. Record Attendance
+4. Enter Student Marks
+5. Event Registration
+6. Resource Allocation
+7. Generate Summary Report
+8. Exit
+
+Enter your choice: 2
+
+--- Student Records ---
+ID: 101 Name: Ravi Course: BCA
+
+===== SMART CAMPUS MANAGEMENT =====
+Enter your choice: 3
+Enter Student ID: 101
+Enter classes attended: 45
+Enter total classes: 50
+Attendance recorded: 90.0 %
+
+===== SMART CAMPUS MANAGEMENT =====
+Enter your choice: 4
+Enter Student ID: 101
+Enter Subject 1 marks: 85
+Enter Subject 2 marks: 90
+Enter Subject 3 marks: 80
+Total: 255.0
+Average: 85.0
+Grade: A
+
+===== SMART CAMPUS MANAGEMENT =====
+Enter your choice: 5
+Enter Student ID: 101
+Enter Event Name: Coding Competition
+Event registration successful!
+
+===== SMART CAMPUS MANAGEMENT =====
+Enter your choice: 6
+Enter Student ID: 101
+Enter Resource Name: Laptop
+Enter Quantity: 2
+Resource allocated successfully!
+
+===== SMART CAMPUS MANAGEMENT =====
+Enter your choice: 7
+
+===== CAMPUS SUMMARY REPORT =====
+Total Students: 1
+Attendance Records: 1
+Marks Records: 1
+Event Registrations: 1
+Resource Allocations: 1
+
+--- Student Performance ---
+Student ID: 101
+Subject Marks: [85.0, 90.0, 80.0]
+Total: 255.0
+Average: 85.0
+
+--- Attendance Report ---
+Student: 101 Attendance: 90.0 %
+
+--- Event Registrations ---
+101 registered for Coding Competition
+
+--- Resource Allocation ---
+101 Laptop 2
+
+===== SMART CAMPUS MANAGEMENT =====
+Enter your choice: 8
+Thank you for using Smart Campus Management!
