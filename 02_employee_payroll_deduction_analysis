@@ -1,4 +1,4 @@
-Assignment 4: Employee Payroll and Deduction Analysis
+Assignment 2: Employee Payroll and Deduction Analysis
 
 employee_name = input("Enter employee name: ")
 basic_salary = float(input("Enter basic salary (Rs.): "))
@@ -25,3 +25,12 @@ else:
     print(f"Gross salary: Rs. {gross_salary:.2f}")
     print(f"Deduction ({deduction_rate * 100:.0f}%): Rs. {deduction:.2f}")
     print(f"Net salary: Rs. {net_salary:.2f}")
+out put
+--- Payroll Details ---
+Employee: Ravi
+HRA: Rs. 5000.00
+Allowance: Rs. 2500.00
+Overtime pay: Rs. 2000.00
+Gross salary: Rs. 36500.00
+Deduction (10%): Rs. 3650.00
+Net salary: Rs. 32850.00
